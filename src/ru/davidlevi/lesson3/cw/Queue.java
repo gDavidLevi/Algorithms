@@ -23,6 +23,26 @@ public class Queue {
     }
 
     /**
+     * Возвращет доступ к массиву очереди
+     *
+     * @return int[]
+     */
+    public int[] getQueue() {
+        return queue;
+    }
+
+    /**
+     * Актуализирует массив очереди
+     *
+     * @param queue    int[]
+     * @param quantity int количество элементов в очереди
+     */
+    public void setQueue(int[] queue, int quantity) {
+        this.queue = queue;
+        this.quantity = quantity;
+    }
+
+    /**
      * Пустой ли?
      *
      * @return boolean
@@ -89,7 +109,7 @@ public class Queue {
         if (isEmpty())
             throw new RuntimeException("Очередь пуста");
         int temp = queue[head++]; // сохраним последний элемент из массива
-        head %= capacity; //todo ...
+        head %= capacity;
         quantity--; // уменьшим действительно количество элементов
         return temp; // вернем сохраненный элемент
     }
@@ -103,5 +123,19 @@ public class Queue {
         if (isEmpty())
             throw new RuntimeException("Очередь пуста");
         return queue[head];
+    }
+
+    @Override
+    public String toString() {
+        int iMax = capacity - 1;
+        if (iMax == -1) return "[]";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append('[');
+        for (int i = 0; ; i++) {
+            stringBuilder.append(queue[i]);
+            if (i == iMax)
+                return stringBuilder.append(']').toString();
+            stringBuilder.append(", ");
+        }
     }
 }
