@@ -62,7 +62,7 @@ public class Array {
         return index != -1 && delete(index);
     }
 
-    boolean delete(int index) { // by index
+    public boolean delete(int index) { // by index
         if (index >= size || index < 0)
             throw new ArrayIndexOutOfBoundsException("" + index);
         System.arraycopy(arr, index + 1, arr, index, size - index - 1);

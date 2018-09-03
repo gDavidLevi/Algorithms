@@ -1,4 +1,6 @@
-package ru.davidlevi.lesson3.cw;
+package ru.davidlevi.lesson3.hw;
+
+import ru.davidlevi.lesson3.cw.Array;
 
 /**
  * Реализация стека
@@ -81,7 +83,9 @@ public class Stack {
     }
 
     /**
-     * @return
+     * Возвращает true если последовательность скобок соблюдена
+     *
+     * @return boolean
      */
     public boolean isBracketsSequencesChecked() {
         return ((parenthesis == 0) & (lessmore == 0) & (braces == 0) & (squareBrackets == 0));

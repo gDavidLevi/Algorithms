@@ -1,5 +1,7 @@
 package ru.davidlevi.lesson3.cw;
 
+import ru.davidlevi.lesson3.hw.Stack;
+
 /**
  * Урок 3. Стек, очередь и дэк
  */
