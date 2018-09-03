@@ -280,7 +280,7 @@ public class ArrayInts {
                     min = array[i];
             }
             return min;
-        } else throw new IllegalArgumentException();
+        } else throw new RuntimeException("Пустой массив");
     }
 
     /**
@@ -296,7 +296,7 @@ public class ArrayInts {
                     max = array[i];
             }
             return max;
-        } else throw new IllegalArgumentException();
+        } else throw new RuntimeException("Пустой массив");
     }
 
     /**
@@ -356,6 +356,14 @@ public class ArrayInts {
         array = result;
         quantity = resultSize;
         return true;
+        /*
+        // или
+            if (index >= quantity || index < 0)
+                throw new ArrayIndexOutOfBoundsException("" + index);
+            System.arraycopy(array, index + 1, array, index, quantity - index - 1);
+            quantity--;
+            return true;
+         */
     }
 
     /**
@@ -383,6 +391,18 @@ public class ArrayInts {
         if (find(value) == -1)
             responce = true;
         return responce;
+        /*
+        // или
+            boolean success = false;
+            for (int i = 0; i < size; i++) {
+                if (arr[i] == value) {
+                    delete(i);
+                    i--;
+                    success = true;
+                }
+            }
+            return success;
+         */
     }
 
     /**
