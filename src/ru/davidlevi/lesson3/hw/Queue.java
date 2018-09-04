@@ -1,4 +1,4 @@
-package ru.davidlevi.lesson3.cw;
+package ru.davidlevi.lesson3.hw;
 
 /**
  * Реализация очереди

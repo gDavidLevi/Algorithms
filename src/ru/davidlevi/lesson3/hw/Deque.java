@@ -1,7 +1,5 @@
 package ru.davidlevi.lesson3.hw;
 
-import ru.davidlevi.lesson3.cw.Queue;
-
 /**
  * Реализация двусторонней очереди
  * англ. deque — double ended queue
