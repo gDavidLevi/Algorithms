@@ -20,6 +20,16 @@ public class MainClass {
         fromRightToLeft(string);
         // 3.
         testDeque();
+        testPriorityQueue();
+    }
+
+    /**
+     * PriorityQueue
+     */
+    private static void testPriorityQueue() {
+        PriorityQueue priorityQueue = new PriorityQueue(2);
+        priorityQueue.insert(1);
+        priorityQueue.insert(2);
     }
 
     /**

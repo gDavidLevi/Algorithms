@@ -10,6 +10,23 @@ public class Queue {
     private int tail; // индекс хвостового элемента
     private int quantity; // действительное количество элементов
 
+
+    public int getHead() {
+        return head;
+    }
+
+    public void setHead(int head) {
+        this.head = head;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     /**
      * Конструктор
      *
@@ -47,7 +64,7 @@ public class Queue {
      *
      * @return boolean
      */
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return quantity == 0;
     }
 
@@ -56,7 +73,7 @@ public class Queue {
      *
      * @return boolean
      */
-    private boolean isFull() {
+    public boolean isFull() {
         return quantity == capacity; // если количество равно вместимости, то true иначе false
     }
 
