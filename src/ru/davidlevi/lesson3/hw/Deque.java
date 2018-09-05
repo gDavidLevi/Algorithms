@@ -5,7 +5,7 @@ package ru.davidlevi.lesson3.hw;
  * англ. deque — double ended queue
  */
 public class Deque extends Queue {
-    private int counter;
+    private int counter; // счетчик элементов о очереди
 
     /**
      * Конструктор
@@ -48,6 +48,7 @@ public class Deque extends Queue {
      * @return int
      */
     public int removeLeft() {
+        if (isEmpty()) throw new RuntimeException("Очередь пуста");
         counter--; // новая длинна массива
         int[] temp = getQueue();
         int[] newArray = new int[counter]; // новый массив
@@ -62,6 +63,7 @@ public class Deque extends Queue {
      * @return int
      */
     public int removeRight() {
+        if (isEmpty()) throw new RuntimeException("Очередь пуста");
         counter--; // новая длинна массива
         int[] temp = getQueue();
         int[] newArray = new int[counter]; // новый массив
