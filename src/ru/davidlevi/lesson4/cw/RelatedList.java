@@ -88,12 +88,12 @@ public class RelatedList<T> {
      */
     public boolean contains(T object) {
         Node<T> nodeObject = new Node<>(object);
-        Node<T> lastNode = this.lastNode;
-        while (!lastNode.equals(nodeObject)) {
-            if (lastNode.previousNode == null) return false;
-            else lastNode = lastNode.previousNode; // сохраним ссылку на последний узел
+        Node<T> nextNode = this.lastNode;
+        while (!nextNode.equals(nodeObject)) { // выполнять пока следующий узел не равен объекту
+            if (nextNode.previousNode == null) return false; // не содержит.
+            else nextNode = nextNode.previousNode; // следующий узел
         }
-        return true;
+        return true; // да, содержит.
     }
 
     /**
@@ -103,30 +103,33 @@ public class RelatedList<T> {
      * @return T
      */
     public T delete(String name) {
-        Node<T> result = lastNode;
+        Node<T> nextNode = lastNode;
         Node<T> previous = lastNode;
-        while (!(((Cat) result.object).getName()).equals(name)) {
-            if (result.previousNode == null)
-                return null;
+        while (!(((Cat) nextNode.object).getName()).equals(name)) { // выполнять пока не найдено совпадение
+            if (nextNode.previousNode == null) return null; // нечего извлекать.
             else {
-                previous = result;
-                result = result.previousNode;
+                previous = nextNode;
+                nextNode = nextNode.previousNode; // следующий узел
             }
         }
-        if (result == lastNode) lastNode = lastNode.previousNode;
-        else previous.previousNode = result.previousNode;
-        return result.object;
+        // Свяжем списки после разрыва
+        if (nextNode == lastNode)
+            lastNode = lastNode.previousNode;
+        else
+            previous.previousNode = nextNode.previousNode;
+        // Результат
+        return nextNode.object;
     }
 
     @Override
     public String toString() {
         if (isEmpty()) return "[]";
-        Node<T> current = lastNode;
+        Node<T> nextNode = lastNode;
         StringBuilder result = new StringBuilder("[");
-        while (current != null) {
-            result.append(current);
-            current = current.previousNode;
-            result.append((current == null) ? "]" : ", ");
+        while (nextNode != null) {
+            result.append(nextNode);
+            nextNode = nextNode.previousNode;
+            result.append((nextNode == null) ? "]" : ", ");
         }
         return result.toString();
     }
