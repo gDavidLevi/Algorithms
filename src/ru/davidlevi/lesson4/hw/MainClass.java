@@ -13,7 +13,7 @@ public class MainClass {
          Домашняя работа № 4
             Задание:
             1. Реализовать DoubleLinkedList
-            2. Проверить все методы итератора.
+            2. Проверить все методы итератора
          */
         DoubleLinkedList<Cat> list = new DoubleLinkedList<>();
         list.addFirst(new Cat(4, "4"));     // 4 >

@@ -90,10 +90,9 @@ public class DoubleLinkedList<T> {
      */
     boolean addLast(T object) {
         Node<T> node = lastNode;
-        //создаем новый элемент
-        Node<T> newNode = new Node<T>(node, object, null);
+        Node<T> newNode = new Node<T>(node, object, null); // создаем новый элемент
         lastNode = newNode;
-        // Привим ссылки
+        // Правим ссылки
         if (node == null)
             firstNode = newNode;
         else
