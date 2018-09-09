@@ -6,11 +6,31 @@ import java.util.*;
  * DoubleLinkedList - двусвязный список, где каждый элемент содержит ссылки на предыдущий и следующий элементы.
  */
 public class DoubleLinkedList<T> {
+    /**
+     * Узел
+     */
+    private class Node<T> {
+        // Полезные данные
+        T data;
+        // Ссылки
+        Node<T> previous;
+        Node<T> next;
+
+        /**
+         * Конструктор
+         */
+        Node(Node<T> previous, T data, Node<T> next) {
+            this.data = data;
+            this.next = next;
+            this.previous = previous;
+        }
+    }
+    
     private Node<T> firstNode; // первый узел списка
     private Node<T> lastNode; // последний узел списка
     private int counterMod; // количество модификаций списка во время работы иттератора
     private int quantity; // количество действительных элементов в списке
-
+    
     /**
      * Конструктор
      */
