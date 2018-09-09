@@ -44,7 +44,7 @@ public class DoubleLinkedList<T> {
     boolean addFirst(T object) {
         Node<T> newNode = new Node<>(null, object, firstNode);
         if (firstNode != null)
-            firstNode.prev = newNode;
+            firstNode.previous = newNode;
         else
             lastNode = newNode;
         firstNode = newNode;
@@ -131,19 +131,19 @@ public class DoubleLinkedList<T> {
      */
     private T remove(Node<T> node) {
         T oldData = node.data;
-        Node<T> prevNode = node.prev;
+        Node<T> prevNode = node.previous;
         Node<T> nextNode = node.next;
         // Правим ссылки
         if (prevNode == null)  // если первый элемент, то...
             firstNode = node.next;
         else {
             prevNode.next = nextNode;
-            node.prev = null;
+            node.previous = null;
         }
         if (nextNode == null)   // если узел последний в списке, то ...
-            lastNode = node.prev;
+            lastNode = node.previous;
         else {
-            nextNode.prev = prevNode;
+            nextNode.previous = prevNode;
             node.next = null;
         }
         node.data = null;
@@ -165,7 +165,7 @@ public class DoubleLinkedList<T> {
         if (current.next == null)
             lastNode = newNode;
         else
-            current.next.prev = newNode;
+            current.next.previous = newNode;
         current.next = newNode;
         quantity++;
         counterMod++;
@@ -189,7 +189,7 @@ public class DoubleLinkedList<T> {
         } else {
             result = lastNode;
             for (int j = quantity - 1; j > index; j--)
-                result = result.prev;
+                result = result.previous;
             return result;
         }
     }
@@ -270,7 +270,7 @@ public class DoubleLinkedList<T> {
             if (!hasPrevious())
                 throw new NoSuchElementException(); // перебраны все элементы
             // Возвращаем узел и сдвигаем ссылки
-            lastNode = nextNode = (nextNode == null) ? DoubleLinkedList.this.lastNode : nextNode.prev;
+            lastNode = nextNode = (nextNode == null) ? DoubleLinkedList.this.lastNode : nextNode.previous;
             nextIndex--;
             return lastNode.data;
         }
