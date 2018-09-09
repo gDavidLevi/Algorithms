@@ -7,15 +7,15 @@ class Node<T> {
     // Полезные данные
     T data;
     // Ссылки
-    Node<T> prev;
+    Node<T> previous;
     Node<T> next;
 
     /**
      * Конструктор
      */
-    Node(Node<T> prev, T data, Node<T> next) {
+    Node(Node<T> previous, T data, Node<T> next) {
         this.data = data;
         this.next = next;
-        this.prev = prev;
+        this.previous = previous;
     }
 }
