@@ -1,15 +1,14 @@
 package ru.davidlevi.lesson7.cw;
 
-
 import ru.davidlevi.lesson3.hw.Queue;
 import ru.davidlevi.lesson3.hw.Stack;
 
-public class Graph {
+public class GraphCw {
     private class Vertex {
-        public char label;
-        public boolean wasVisited;
+        char label;
+        boolean wasVisited;
 
-        public Vertex(char label) {
+        Vertex(char label) {
             this.label = label;
             wasVisited = false;
         }
@@ -25,7 +24,7 @@ public class Graph {
     private int[][] adjMatrix;
     private int size;
 
-    public Graph(int size) {
+    public GraphCw(int size) {
         this.MAX_VERTICES = size;
     }
 
@@ -38,7 +37,7 @@ public class Graph {
         adjMatrix[end][start] = 1;
     }
 
-    public void showVertex(int vertex) {
+    private void showVertex(int vertex) {
         System.out.println(vertices[vertex]);
     }
 
@@ -75,15 +74,15 @@ public class Graph {
         resetFlags();
     }
 
-    public void widthTravers(){
+    public void widthTravers() {
         Queue queue = new Queue(MAX_VERTICES);
         vertices[0].wasVisited = true;
         showVertex(0);
         queue.insert(0);
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int vCurr = queue.remove();
             int vNext;
-            while ((vNext = getUnvisitedVertex(vCurr)) != -1){
+            while ((vNext = getUnvisitedVertex(vCurr)) != -1) {
                 vertices[vNext].wasVisited = true;
                 showVertex(vNext);
                 queue.insert(vNext);
