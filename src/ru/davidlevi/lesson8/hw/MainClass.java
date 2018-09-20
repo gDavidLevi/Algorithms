@@ -20,11 +20,18 @@ public class MainClass {
 
         // Отображение
         System.out.println(table);
+//        0
+//        1 1
+//        2
+//        3
+//        4
+//        5
+//        6
 
         // Поиск значения 1
         int find = 1;
         if (table.find(find).getData() == find)
-            System.out.println("Имееется такое значение");
+            System.out.println("Имееется такое значение"); // Имееется такое значение
         else
             System.out.println("Значение отсутствует");
     }
