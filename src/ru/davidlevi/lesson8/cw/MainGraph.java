@@ -5,6 +5,9 @@ import ru.davidlevi.lesson3.hw.Stack;
 
 import java.util.Arrays;
 
+/**
+ * Урок 8. Хеш-таблицы
+ */
 public class MainGraph {
     public static void main(String[] args) {
         Graph g = new Graph(32);
